@@ -1,18 +1,4 @@
-# Operating system
+node_modules/
+dist/vendor/
 .DS_Store
-Thumbs.db
-
-# Editors
-.vscode/
-.idea/
-
-# Logs and temp
 *.log
-tmp/
-temp/
-.cache/
-
-# Generated output
-dist/
-build/
-coverage/
