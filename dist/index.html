@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#302b22">
+  <meta name="description" content="بدوي: امشِ بين الإبل، اسقِ قطيعك وأطعمه، واحفظ رحلتك في الصحراء السعودية.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>بدوي — بداية جديدة</title>
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="world" aria-label="عالم بدوي ثلاثي الأبعاد"></canvas>
+  <div class="shade" aria-hidden="true"></div>
+  <header class="hud">
+    <div class="brand"><span class="brand-symbol">ب</span><div><b>بدوي</b><small>بداية جديدة</small></div></div>
+    <div class="clock"><span id="season-icon" aria-hidden="true">☀</span><div><b id="clock">06:00</b><small id="calendar">اليوم 1 · الربيع</small></div><i><span id="day-progress"></span></i></div>
+    <div class="toolbar">
+      <span class="balance"><b id="coins">300</b><small>ريال</small></span>
+      <button class="icon-button" id="map-button" aria-label="الخريطة" title="الخريطة"><svg><use href="#i-map"/></svg></button>
+      <button class="icon-button" id="herd-button" aria-label="القطيع" title="القطيع"><svg><use href="#i-camel"/></svg></button>
+      <button class="icon-button" id="settings-button" aria-label="الإعدادات" title="الإعدادات"><svg><use href="#i-settings"/></svg></button>
+    </div>
+  </header>
+  <button id="quest-button" class="quest" aria-label="تفاصيل المهمة">
+    <span class="eyebrow">مهمة اليوم <span id="quest-badge">+250 ريال</span></span>
+    <b id="quest-title">الرعاية أولًا</b>
+    <span id="quest-detail">اسق 3 نياق · أطعم 3 نياق</span>
+    <span class="quest-bars"><i><span id="water-progress"></span></i><i><span id="feed-progress"></span></i></span>
+  </button>
+  <div class="crosshair" aria-hidden="true"></div>
+  <div id="target-tag" class="target-tag hidden"><b id="target-name"></b><span id="target-stats"></span></div>
+  <div id="waypoint" class="waypoint hidden"></div>
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+  <div class="look-hint" id="look-hint">اسحب المشهد لتلفت حولك</div>
+  <div id="controls" class="controls">
+    <div class="movement">
+      <div id="joystick" class="joystick" aria-label="اسحب للتحرك"><span class="stick-guide">↑</span><div id="knob" class="knob"></div></div>
+      <span class="movement-label">تحرّك</span>
+    </div>
+    <div class="toolbelt" role="group" aria-label="أدوات الرعاية">
+      <button data-tool="water" class="tool selected" aria-label="الماء"><svg><use href="#i-water"/></svg><b id="water-stock">40</b></button>
+      <button data-tool="feed" class="tool" aria-label="العلف"><svg><use href="#i-leaf"/></svg><b id="feed-stock">40</b></button>
+      <button data-tool="pet" class="tool" aria-label="مداعبة الناقة"><svg><use href="#i-hand"/></svg><span>لمس</span></button>
+      <button data-tool="milk" class="tool" aria-label="حلب الناقة"><svg><use href="#i-milk"/></svg><b id="milk-stock">0 ل</b></button>
+    </div>
+    <div class="actions">
+      <div class="small-actions">
+        <button id="run-button" class="action-small" aria-label="تبديل الركض"><svg><use href="#i-run"/></svg><span>ركض</span></button>
+        <button id="call-button" class="action-small" aria-label="نادِ القطيع"><svg><use href="#i-whistle"/></svg><span>نداء</span></button>
+        <button id="market-button" class="action-small" aria-label="السوق"><svg><use href="#i-market"/></svg><span>سوق</span></button>
+      </div>
+      <button id="interact-button" class="interact"><svg><use href="#i-hand"/></svg><span id="interact-label">اقترب</span></button>
+    </div>
+  </div>
+  <div class="save-status" id="save-status" aria-live="polite">حفظ تلقائي</div>
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <section class="panel">
+      <button id="modal-close" class="close hidden" aria-label="إغلاق">×</button>
+      <div id="modal-content">
+        <div class="intro-symbol">ب</div><span class="eyebrow">في رحاب الصحراء</span>
+        <h1 id="modal-title">بدوي</h1><p class="intro-subtitle">حياة بسيطة. قطيع يحتاجك.</p>
+        <div class="intro-facts"><span>10 نياق وجمل</span><span>منظور شخص أول</span><span>يوم = 10 دقائق</span></div>
+        <p class="intro-copy">اسقِ النوق وأطعمها، امشِ معها للمرعى، ثم بع الحليب في السوق. كل شيء يبدأ بخطوتك الأولى.</p>
+        <button id="start-button" class="primary">ابدأ رحلتك <span>←</span></button>
+        <button id="help-button" class="text-button">كيف ألعب؟</button>
+        <p class="prototype-label">نسخة أولية قابلة للعب · رسوم ثلاثية الأبعاد مبسطة</p>
+      </div>
+    </section>
+  </div>
+  <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-water" viewBox="0 0 24 24"><path d="M12 3C9 7 5 11 5 15a7 7 0 0 0 14 0c0-4-4-8-7-12Z"/><path d="M9 16a3 3 0 0 0 3 3"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 3C9 2 3 7 5 14s15 4 15-11Z"/><path d="m3 21 13-13"/></symbol>
+    <symbol id="i-hand" viewBox="0 0 24 24"><path d="M8 12V6a1.5 1.5 0 0 1 3 0v5-7a1.5 1.5 0 0 1 3 0v7-5a1.5 1.5 0 0 1 3 0v6-3a1.5 1.5 0 0 1 3 0v6c0 5-2 7-6 7h-2c-3 0-4-2-6-5l-3-4a1.5 1.5 0 0 1 2-2l3 3"/></symbol>
+    <symbol id="i-milk" viewBox="0 0 24 24"><path d="M8 3h8v4l3 5v9H5v-9l3-5V3Z"/><path d="M8 7h8M5 14h14"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5Zm6-2v16m6-14v16"/></symbol>
+    <symbol id="i-camel" viewBox="0 0 24 24"><path d="m3 20 1-7c1-4 3-4 5-6 1-2 3-2 4 2l3 2 2-6 3-1v4l-2 1-1 6-3 1-1 5m-5-6-1 6m-4-7-2-3"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="m10 3-1 3-3 1-3-1-1 4 3 2v3l-2 2 3 3 3-1 3 1 1 3 4-1v-3l3-2 3 1 1-4-3-2v-3l2-2-3-3-3 1-3-1-1-3Z" transform="translate(0 -1) scale(.9)"/><circle cx="11" cy="11" r="3"/></symbol>
+    <symbol id="i-run" viewBox="0 0 24 24"><circle cx="15" cy="4" r="2"/><path d="m8 11 4-4 4 4 4 1m-8-5-2 8 5 3 2 4m-7-7-4 5H2"/></symbol>
+    <symbol id="i-whistle" viewBox="0 0 24 24"><path d="M5 10h12l4-3v7l-4-2h-3a5 5 0 1 1-9-2Z"/><circle cx="8" cy="15" r="1.5"/><path d="m17 3 1-2m3 4 2-1"/></symbol>
+    <symbol id="i-market" viewBox="0 0 24 24"><path d="M4 10v11h16V10M3 10l2-7h14l2 7M8 10V3m8 7V3M9 21v-7h6v7M3 10c0 3 4 3 5 0 0 3 4 3 4 0 0 3 4 3 4 0 1 3 5 3 5 0"/></symbol>
+  </svg>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
