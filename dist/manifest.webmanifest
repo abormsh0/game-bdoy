@@ -1,0 +1,15 @@
+{
+  "id": "./",
+  "name": "بدوي — بداية جديدة",
+  "short_name": "بدوي",
+  "description": "لعبة ثلاثية الأبعاد لرعاية الإبل",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#302b22",
+  "theme_color": "#302b22",
+  "icons": [{ "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
