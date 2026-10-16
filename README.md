@@ -55,6 +55,7 @@ https://badawi-new-journey.rmssh.chatgpt.site
 | tests/ | اختبارات منطق اللعب والتحكم وبنية المشهد |
 | scripts/prepare-vendor.mjs | نسخ مكتبة الرسوم المحلية بعد التثبيت |
 | scripts/serve.mjs | خادم ملفات محلي للتطوير |
+| tools/blender/rig_camel.py | قالب هيكل عظمي وحركات تجريبية لمجسم الناقة في Blender، دون ربط بالمجسم |
 | docs/MVP.md | نطاق النموذج الحالي وحدوده |
 | THIRD_PARTY_LICENSES.txt | ترخيص مكتبة Three.js |
 
