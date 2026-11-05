@@ -71,6 +71,6 @@ https://badawi-new-journey.rmssh.chatgpt.site
 
 - main: النسخة المستقرة.
 - develop: دمج التطوير.
-- feature/badawi-new-prototype: النسخة الجديدة، بانتظار مراجعتها ودمجها.
+- feature/badawi-new-prototype: فرع النموذج الأولي؛ دُمج في develop عبر طلب الدمج #2.
 
 راجع docs/MVP.md للتجربة الأولى وخطوة التطوير التالية.
