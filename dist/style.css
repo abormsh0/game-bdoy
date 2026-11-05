@@ -7,3 +7,15 @@ body{touch-action:none}button{font:inherit;color:inherit;border:0;cursor:pointer
 .spaced{margin-top:18px}.notice{font-size:12px;color:#ddc68f;line-height:1.7;min-height:22px}.herd-row small{display:block;font-size:9px;color:var(--muted);margin-top:4px}.map-destinations{display:grid;grid-template-columns:1fr 1fr;gap:8px}.map-destinations button{background:#ffffff09;border:1px solid var(--border);padding:10px;border-radius:8px;font-size:12px}.map-destinations small{color:var(--muted);margin-right:5px}
 body{touch-action:auto}.panel{touch-action:pan-y}
 @media(max-height:550px) and (min-width:600px){.clock{top:0}}
+
+
+/* واجهة لعب مدمجة مستوحاة من مخيم بدوي */
+.toolbar,.quest,.clock,.toolbelt{background:rgba(24,25,25,.82);border-color:rgba(238,207,150,.4);box-shadow:0 4px 18px #0003}
+.quest{border-radius:12px}.quest>b{color:#fff0d4}.quest-bars i span{background:#73ce82}
+.joystick{border:2px solid #f3eee0a6;background:radial-gradient(circle,#4c4d4b80,#20232299)}
+.knob{background:linear-gradient(#acaba3a8,#4d504ea8);border-color:#fff9}
+.toolbelt{direction:rtl;gap:5px;padding:6px}.tool{width:54px;height:52px;background:#ffffff08}.tool.selected{background:#c79b514d;box-shadow:inset 0 0 0 1px #eac581}.tool span{white-space:nowrap}.tool b{font-size:9px}
+.actions{align-items:flex-end}.action-small,.more-actions summary{min-width:64px;min-height:44px;background:#202322d9;border:1px solid #f2e2c270;border-radius:24px;color:#fff;display:flex;align-items:center;justify-content:center;gap:5px;font-size:11px;cursor:pointer;list-style:none}.more-actions summary::-webkit-details-marker{display:none}.more-actions{position:relative}.more-actions[open] #market-button{position:absolute;right:0;bottom:50px;box-shadow:0 4px 16px #0008}.more-actions summary:focus-visible{outline:2px solid #ffe0a7;outline-offset:3px}
+.interact{background:#26241fe8;border:2px solid #e8c281}.interact.ready{background:#9a753edc}
+@media(max-height:550px) and (min-width:600px){.toolbelt{bottom:0}.tool{width:48px;height:46px}.action-small,.more-actions summary{min-width:56px;min-height:44px}.small-actions{flex-direction:row;align-items:center}.actions{gap:6px}.quest{width:165px}.more-actions[open] #market-button{bottom:49px}}
+@media(max-width:700px) and (orientation:portrait){.toolbelt{bottom:115px}.tool{width:47px}.small-actions{gap:5px}.action-small,.more-actions summary{min-height:44px}.controls{bottom:max(18px,env(safe-area-inset-bottom))}}
