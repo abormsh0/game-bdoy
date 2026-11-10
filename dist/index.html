@@ -41,16 +41,16 @@
       <span class="movement-label">تحرّك</span>
     </div>
     <div class="toolbelt" role="group" aria-label="أدوات الرعاية">
-      <button data-tool="water" class="tool selected" aria-label="الماء"><svg><use href="#i-water"/></svg><b id="water-stock">40</b></button>
-      <button data-tool="feed" class="tool" aria-label="العلف"><svg><use href="#i-leaf"/></svg><b id="feed-stock">40</b></button>
+      <button data-tool="water" class="tool selected" aria-label="الماء"><svg><use href="#i-water"/></svg><span>ماء <b id="water-stock">40</b></span></button>
+      <button data-tool="feed" class="tool" aria-label="العلف"><svg><use href="#i-leaf"/></svg><span>علف <b id="feed-stock">40</b></span></button>
       <button data-tool="pet" class="tool" aria-label="مداعبة الناقة"><svg><use href="#i-hand"/></svg><span>لمس</span></button>
-      <button data-tool="milk" class="tool" aria-label="حلب الناقة"><svg><use href="#i-milk"/></svg><b id="milk-stock">0 ل</b></button>
+      <button data-tool="milk" class="tool" aria-label="حلب الناقة"><svg><use href="#i-milk"/></svg><span>حليب <b id="milk-stock">0 ل</b></span></button>
     </div>
     <div class="actions">
       <div class="small-actions">
         <button id="run-button" class="action-small" aria-label="تبديل الركض"><svg><use href="#i-run"/></svg><span>ركض</span></button>
         <button id="call-button" class="action-small" aria-label="نادِ القطيع"><svg><use href="#i-whistle"/></svg><span>نداء</span></button>
-        <button id="market-button" class="action-small" aria-label="السوق"><svg><use href="#i-market"/></svg><span>سوق</span></button>
+        <details class="more-actions"><summary aria-label="خيارات إضافية">المزيد</summary><button id="market-button" class="action-small" aria-label="السوق"><svg><use href="#i-market"/></svg><span>سوق</span></button></details>
       </div>
       <button id="interact-button" class="interact"><svg><use href="#i-hand"/></svg><span id="interact-label">اقترب</span></button>
     </div>
@@ -85,3 +85,4 @@
   <script type="module" src="./app.js"></script>
 </body>
 </html>
+

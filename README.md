@@ -1,5 +1,7 @@
 # بدوي — بداية جديدة
 
+[![Check playable prototype](https://github.com/abormsh0/game-bdoy/actions/workflows/check.yml/badge.svg)](https://github.com/abormsh0/game-bdoy/actions/workflows/check.yml)
+
 نسخة جديدة قابلة للعب من لعبة بدوي، بمنظور شخص أول في صحراء سعودية مبسطة. يبدأ اللاعب بعشر نياق وجمل، ويتحرك بينها بالعصا أو لوحة المفاتيح.
 
 ## الموجود في النسخة
@@ -33,6 +35,12 @@ https://badawi-new-journey.rmssh.chatgpt.site
 
 التجربة المستضافة خاصة بصاحب حساب ChatGPT. الكود في هذا المستودع عام، ويمكن تشغيله محليًا بالأوامر أعلاه.
 
+النسخة العامة تُنشر تلقائيًا على GitHub Pages بعد كل دمج في main، عبر سير العمل deploy-pages.yml:
+
+https://abormsh0.github.io/game-bdoy/
+
+يعمل الرابط بعد تفعيل Pages مرة واحدة من Settings ← Pages ← Source = GitHub Actions.
+
 ## التحكم
 
 | الفعل | الجوال | الكمبيوتر |
@@ -56,6 +64,9 @@ https://badawi-new-journey.rmssh.chatgpt.site
 | scripts/prepare-vendor.mjs | نسخ مكتبة الرسوم المحلية بعد التثبيت |
 | scripts/serve.mjs | خادم ملفات محلي للتطوير |
 | tools/blender/rig_camel.py | قالب هيكل عظمي وحركات تجريبية لمجسم الناقة في Blender، دون ربط بالمجسم |
+| .github/workflows/check.yml | بناء وفحص واختبار عند كل push وطلب دمج |
+| .github/workflows/deploy-pages.yml | نشر dist على GitHub Pages من main |
+| .github/dependabot.yml | تحديثات شهرية للمكتبات وإجراءات GitHub |
 | docs/MVP.md | نطاق النموذج الحالي وحدوده |
 | THIRD_PARTY_LICENSES.txt | ترخيص مكتبة Three.js |
 
