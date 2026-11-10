@@ -10,5 +10,5 @@
     "test": "node --test tests/*.test.mjs",
     "check": "node scripts/check.mjs"
   },
-  "dependencies": { "three": "0.180.0" }
+  "dependencies": { "three": "0.187.0" }
 }
